@@ -1,0 +1,7 @@
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\bin\Debug\CapaConexion.pdb
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\obj\Debug\ConexionDB.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\obj\Debug\CapaConexion.pdb
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\bin\Debug\CapaConexion.dll.config
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\bin\Debug\CapaConexion.dll
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\obj\Debug\CapaConexion.dll
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\CapaConexion\obj\Debug\ConexionDB.csprojAssemblyReference.cache

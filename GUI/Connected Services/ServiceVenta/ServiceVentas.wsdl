@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="comprobarSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="campo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="comprobarSQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="comprobarSQLResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaVendedorServ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaVendedorServResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaVendedorServResult" type="tns:Vendedor" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Vendedor">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdVendedor" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rut" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="consultarProductosServ">
+        <s:complexType />
+      </s:element>
+      <s:element name="consultarProductosServResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarProductosServResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarVentasCompletaServ">
+        <s:complexType />
+      </s:element>
+      <s:element name="consultarVentasCompletaServResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarVentasCompletaServResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarProductosDeVenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarProductosDeVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarProductosDeVentaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="filtrarProductoMarcaServ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="filtrarProductoMarcaServResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filtrarProductoMarcaServResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarProductoServ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarProductoServResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarProductoServResult" type="tns:Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Producto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrecioUnitario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdFamilia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ingresarBoletaCabeceraServ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vc" type="tns:Venta_Cabecera" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Venta_Cabecera">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdVenta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdVendedor" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hora" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Iva" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNeto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ingresarBoletaCabeceraServResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ingresarBoletaDetalleServ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vd" type="tns:Venta_Detalle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Venta_Detalle">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdVenta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Subtotal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ingresarBoletaDetalleServResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ultimaVenta">
+        <s:complexType />
+      </s:element>
+      <s:element name="ultimaVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ultimaVentaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarStockResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="anularBoleta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numVenta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="anularBoletaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="consultarPorAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarPorAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="consultarPorAdminResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarFiado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cd" type="tns:Cliente_Deuda" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Cliente_Deuda">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Rut" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdVenta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Credito" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ingresarFiadoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ingresarDeuda">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deudaTotal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rutCliente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarDeudaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="buscaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rutCliente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaClienteResult" type="tns:Cliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Cliente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Rut" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDeuda" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="eliminarUltimaVentaCabecera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numVenta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarUltimaVentaCabeceraResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="comprobarSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:comprobarSQL" />
+  </wsdl:message>
+  <wsdl:message name="comprobarSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:comprobarSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscaVendedorServSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaVendedorServ" />
+  </wsdl:message>
+  <wsdl:message name="buscaVendedorServSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaVendedorServResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarProductosServSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarProductosServ" />
+  </wsdl:message>
+  <wsdl:message name="consultarProductosServSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarProductosServResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarVentasCompletaServSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarVentasCompletaServ" />
+  </wsdl:message>
+  <wsdl:message name="consultarVentasCompletaServSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarVentasCompletaServResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarProductosDeVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarProductosDeVenta" />
+  </wsdl:message>
+  <wsdl:message name="consultarProductosDeVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarProductosDeVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="filtrarProductoMarcaServSoapIn">
+    <wsdl:part name="parameters" element="tns:filtrarProductoMarcaServ" />
+  </wsdl:message>
+  <wsdl:message name="filtrarProductoMarcaServSoapOut">
+    <wsdl:part name="parameters" element="tns:filtrarProductoMarcaServResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarProductoServSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarProductoServ" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarProductoServSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarProductoServResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarBoletaCabeceraServSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarBoletaCabeceraServ" />
+  </wsdl:message>
+  <wsdl:message name="ingresarBoletaCabeceraServSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarBoletaCabeceraServResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarBoletaDetalleServSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarBoletaDetalleServ" />
+  </wsdl:message>
+  <wsdl:message name="ingresarBoletaDetalleServSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarBoletaDetalleServResponse" />
+  </wsdl:message>
+  <wsdl:message name="ultimaVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:ultimaVenta" />
+  </wsdl:message>
+  <wsdl:message name="ultimaVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:ultimaVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizarStockSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizarStock" />
+  </wsdl:message>
+  <wsdl:message name="actualizarStockSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizarStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="anularBoletaSoapIn">
+    <wsdl:part name="parameters" element="tns:anularBoleta" />
+  </wsdl:message>
+  <wsdl:message name="anularBoletaSoapOut">
+    <wsdl:part name="parameters" element="tns:anularBoletaResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarPorAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarPorAdmin" />
+  </wsdl:message>
+  <wsdl:message name="consultarPorAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarPorAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarFiadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarFiado" />
+  </wsdl:message>
+  <wsdl:message name="ingresarFiadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarFiadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarDeudaSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarDeuda" />
+  </wsdl:message>
+  <wsdl:message name="ingresarDeudaSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarDeudaResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaCliente" />
+  </wsdl:message>
+  <wsdl:message name="buscaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarUltimaVentaCabeceraSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarUltimaVentaCabecera" />
+  </wsdl:message>
+  <wsdl:message name="eliminarUltimaVentaCabeceraSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarUltimaVentaCabeceraResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceVentasSoap">
+    <wsdl:operation name="comprobarSQL">
+      <wsdl:input message="tns:comprobarSQLSoapIn" />
+      <wsdl:output message="tns:comprobarSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscaVendedorServ">
+      <wsdl:input message="tns:buscaVendedorServSoapIn" />
+      <wsdl:output message="tns:buscaVendedorServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarProductosServ">
+      <wsdl:input message="tns:consultarProductosServSoapIn" />
+      <wsdl:output message="tns:consultarProductosServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarVentasCompletaServ">
+      <wsdl:input message="tns:consultarVentasCompletaServSoapIn" />
+      <wsdl:output message="tns:consultarVentasCompletaServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarProductosDeVenta">
+      <wsdl:input message="tns:consultarProductosDeVentaSoapIn" />
+      <wsdl:output message="tns:consultarProductosDeVentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarProductoMarcaServ">
+      <wsdl:input message="tns:filtrarProductoMarcaServSoapIn" />
+      <wsdl:output message="tns:filtrarProductoMarcaServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarProductoServ">
+      <wsdl:input message="tns:SeleccionarProductoServSoapIn" />
+      <wsdl:output message="tns:SeleccionarProductoServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarBoletaCabeceraServ">
+      <wsdl:input message="tns:ingresarBoletaCabeceraServSoapIn" />
+      <wsdl:output message="tns:ingresarBoletaCabeceraServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarBoletaDetalleServ">
+      <wsdl:input message="tns:ingresarBoletaDetalleServSoapIn" />
+      <wsdl:output message="tns:ingresarBoletaDetalleServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ultimaVenta">
+      <wsdl:input message="tns:ultimaVentaSoapIn" />
+      <wsdl:output message="tns:ultimaVentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarStock">
+      <wsdl:input message="tns:actualizarStockSoapIn" />
+      <wsdl:output message="tns:actualizarStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="anularBoleta">
+      <wsdl:input message="tns:anularBoletaSoapIn" />
+      <wsdl:output message="tns:anularBoletaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarPorAdmin">
+      <wsdl:input message="tns:consultarPorAdminSoapIn" />
+      <wsdl:output message="tns:consultarPorAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarFiado">
+      <wsdl:input message="tns:ingresarFiadoSoapIn" />
+      <wsdl:output message="tns:ingresarFiadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarDeuda">
+      <wsdl:input message="tns:ingresarDeudaSoapIn" />
+      <wsdl:output message="tns:ingresarDeudaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscaCliente">
+      <wsdl:input message="tns:buscaClienteSoapIn" />
+      <wsdl:output message="tns:buscaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUltimaVentaCabecera">
+      <wsdl:input message="tns:eliminarUltimaVentaCabeceraSoapIn" />
+      <wsdl:output message="tns:eliminarUltimaVentaCabeceraSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceVentasSoap" type="tns:ServiceVentasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="comprobarSQL">
+      <soap:operation soapAction="http://tempuri.org/comprobarSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaVendedorServ">
+      <soap:operation soapAction="http://tempuri.org/buscaVendedorServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarProductosServ">
+      <soap:operation soapAction="http://tempuri.org/consultarProductosServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarVentasCompletaServ">
+      <soap:operation soapAction="http://tempuri.org/consultarVentasCompletaServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarProductosDeVenta">
+      <soap:operation soapAction="http://tempuri.org/consultarProductosDeVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarProductoMarcaServ">
+      <soap:operation soapAction="http://tempuri.org/filtrarProductoMarcaServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarProductoServ">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarProductoServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarBoletaCabeceraServ">
+      <soap:operation soapAction="http://tempuri.org/ingresarBoletaCabeceraServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarBoletaDetalleServ">
+      <soap:operation soapAction="http://tempuri.org/ingresarBoletaDetalleServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ultimaVenta">
+      <soap:operation soapAction="http://tempuri.org/ultimaVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarStock">
+      <soap:operation soapAction="http://tempuri.org/actualizarStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="anularBoleta">
+      <soap:operation soapAction="http://tempuri.org/anularBoleta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPorAdmin">
+      <soap:operation soapAction="http://tempuri.org/consultarPorAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarFiado">
+      <soap:operation soapAction="http://tempuri.org/ingresarFiado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarDeuda">
+      <soap:operation soapAction="http://tempuri.org/ingresarDeuda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaCliente">
+      <soap:operation soapAction="http://tempuri.org/buscaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUltimaVentaCabecera">
+      <soap:operation soapAction="http://tempuri.org/eliminarUltimaVentaCabecera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceVentasSoap12" type="tns:ServiceVentasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="comprobarSQL">
+      <soap12:operation soapAction="http://tempuri.org/comprobarSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaVendedorServ">
+      <soap12:operation soapAction="http://tempuri.org/buscaVendedorServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarProductosServ">
+      <soap12:operation soapAction="http://tempuri.org/consultarProductosServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarVentasCompletaServ">
+      <soap12:operation soapAction="http://tempuri.org/consultarVentasCompletaServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarProductosDeVenta">
+      <soap12:operation soapAction="http://tempuri.org/consultarProductosDeVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarProductoMarcaServ">
+      <soap12:operation soapAction="http://tempuri.org/filtrarProductoMarcaServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarProductoServ">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarProductoServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarBoletaCabeceraServ">
+      <soap12:operation soapAction="http://tempuri.org/ingresarBoletaCabeceraServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarBoletaDetalleServ">
+      <soap12:operation soapAction="http://tempuri.org/ingresarBoletaDetalleServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ultimaVenta">
+      <soap12:operation soapAction="http://tempuri.org/ultimaVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarStock">
+      <soap12:operation soapAction="http://tempuri.org/actualizarStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="anularBoleta">
+      <soap12:operation soapAction="http://tempuri.org/anularBoleta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPorAdmin">
+      <soap12:operation soapAction="http://tempuri.org/consultarPorAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarFiado">
+      <soap12:operation soapAction="http://tempuri.org/ingresarFiado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarDeuda">
+      <soap12:operation soapAction="http://tempuri.org/ingresarDeuda" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaCliente">
+      <soap12:operation soapAction="http://tempuri.org/buscaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUltimaVentaCabecera">
+      <soap12:operation soapAction="http://tempuri.org/eliminarUltimaVentaCabecera" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceVentas">
+    <wsdl:port name="ServiceVentasSoap" binding="tns:ServiceVentasSoap">
+      <soap:address location="http://localhost:51043/ServiceVentas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceVentasSoap12" binding="tns:ServiceVentasSoap12">
+      <soap12:address location="http://localhost:51043/ServiceVentas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

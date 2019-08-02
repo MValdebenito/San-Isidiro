@@ -1,0 +1,6 @@
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\DTO\bin\Debug\DTO.dll
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\DTO\bin\Debug\DTO.pdb
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\DTO\obj\Debug\DTO.dll
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\DTO\obj\Debug\DTO.pdb
+C:\Users\Mauricio\source\repos\SistemaSanIsidro\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
